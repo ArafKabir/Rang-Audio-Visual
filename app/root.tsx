@@ -1,5 +1,5 @@
 import {
-  isRouteErrorResponse,
+  isRouteErrorResponse, Link,
   Links,
   Meta,
   Outlet,
@@ -42,8 +42,32 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+      <>
+        <nav className="bg-gray-50 shadow-md px-8 py-4 flex justify-between items-center">
+          {/* Logo on the left */}
+          <Link to="/" className="flex items-center space-x-2">
+            <img src="/RangIcon.png" alt="Rang Icon" className="w-8 h-8" />
+            <span className="text-2xl font-bold text-indigo-600">Rang Audio Visual</span>
+          </Link>
+
+          {/* Navigation links on the right */}
+          <div className="space-x-6 text-gray-700 font-medium">
+            <Link to="/about" className="hover:text-indigo-600">About Us</Link>
+            <Link to="/pricing" className="hover:text-indigo-600">Pricing</Link>
+            <Link to="/contact" className="hover:text-indigo-600">Contact</Link>
+            <Link to="/photos" className="hover:text-indigo-600">Photos</Link>
+          </div>
+        </nav>
+
+        {/* Main content goes here */}
+        <main className="p-4">
+          <Outlet />
+        </main>
+      </>
+  );
 }
+
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   let message = "Oops!";
