@@ -13,3 +13,15 @@ body {
     color-scheme: dark;
   }
 }
+
+
+/* Button is invisible by default … */
+.swiper-slide .cta {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/* … and fades in on the active slide. */
+.swiper-slide-active .cta {
+  opacity: 1;
+}
