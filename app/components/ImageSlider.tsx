@@ -19,7 +19,7 @@ export function ImageSlider() {
                 loop
                 autoplay={{ delay: 3000, disableOnInteraction: false }}
                 pagination={{ clickable: true }}
-                className="w-full h-64 md:h-96 rounded-lg overflow-hidden"
+                className="w-full h-96 md:h-150 rounded-lg overflow-hidden"
             >
                 {slides.map((src) => (
                     <SwiperSlide key={src} className="relative">
