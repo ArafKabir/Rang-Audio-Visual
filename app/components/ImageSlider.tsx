@@ -1,15 +1,15 @@
-// app/components/ImageSlider.tsx
 import { Swiper, SwiperSlide } from "swiper/react";
-import {Autoplay, Pagination} from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
+import { Link } from "react-router";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Link } from "react-router";
 
 export function ImageSlider() {
     const slides = [
         "/HomeCarousel/slide1.jpg",
         "/HomeCarousel/slide2.jpg",
         "/HomeCarousel/slide3.jpg",
+        "/HomeCarousel/slide4.jpg"
     ];
 
     return (
@@ -17,19 +17,19 @@ export function ImageSlider() {
             <Swiper
                 modules={[Autoplay, Pagination]}
                 loop
-                autoplay={{ delay: 3000, disableOnInteraction: false }}
+                centeredSlides                    // NEW: keeps active slide in the middle
+                slidesPerView={"auto"}            // NEW: respect custom width we set in CSS
+                autoplay={{ delay: 3500, disableOnInteraction: false }}
                 pagination={{ clickable: true }}
-                className="w-full h-96 md:h-150 rounded-lg overflow-hidden"
+                className="w-full h-96 md:h-[32rem] rounded-lg"  /* keep height responsive */
             >
                 {slides.map((src) => (
                     <SwiperSlide key={src} className="relative">
                         <img src={src} className="w-full h-full object-cover" />
 
-                        {/* BOOK NOW */}
                         <Link
                             to="/booking"
                             className="
-                            cta
                 absolute bottom-6 left-6
                 group inline-block overflow-hidden
                 px-6 py-2 border border-white text-white
@@ -45,7 +45,7 @@ export function ImageSlider() {
                   transition-transform duration-300
                 "
                             />
-                            <span className="relative z-10">Book&nbsp;Now</span>
+                            <span className="relative z-10">Book Now</span>
                         </Link>
                     </SwiperSlide>
                 ))}

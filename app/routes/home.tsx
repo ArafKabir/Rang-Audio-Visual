@@ -1,6 +1,16 @@
 import type { Route } from "./+types/home";
 import { ImageSlider } from "~/components/ImageSlider";
+import {motion, type Variants} from "framer-motion";
 import { FeatureCard} from "~/components/FeatureCard";
+
+const containerVariants: Variants = {
+    hidden: {},
+    show: {
+        transition: {
+            staggerChildren: 0.1,
+        },
+    },
+};
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -47,12 +57,19 @@ export default function Home() {
       <section className="bg-white text-black dark:bg-gray-950 dark:text-white">
         <ImageSlider />
           <div className="py-12 px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-10">What We Do</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-screen-lg mx-auto">
+              <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-12">
+                  What We Do
+              </h2>
+              <motion.div
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-screen-lg mx-auto"
+                  variants={containerVariants}
+                  initial="hidden"
+                  animate="show"
+              >
                   {features.map((feature) => (
-                      <FeatureCard key={feature.title} {...feature} />
+                      <FeatureCard index={0} key={feature.title} {...feature} />
                   ))}
-              </div>
+              </motion.div>
           </div>
       </section>
 
