@@ -15,13 +15,15 @@
     "clsx": "^2.1.1",
     "framer-motion": "^12.19.2",
     "isbot": "^5.1.27",
+    "lightgallery": "^2.9.0-beta.1",
     "react": "^19.1.0",
     "react-awesome-reveal": "^4.3.1",
     "react-bootstrap": "^2.10.10",
     "react-dom": "^19.1.0",
     "react-router": "^7.5.3",
     "react-router-dom": "^7.6.3",
-    "swiper": "^11.2.10"
+    "swiper": "^11.2.10",
+    "yet-another-react-lightbox": "^3.23.4"
   },
   "devDependencies": {
     "@react-router/dev": "^7.5.3",
