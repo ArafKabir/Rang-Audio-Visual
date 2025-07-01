@@ -9,6 +9,7 @@
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@react-router/node": "^7.5.3",
     "@react-router/serve": "^7.5.3",
     "bootstrap": "^5.3.7",

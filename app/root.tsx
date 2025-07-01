@@ -40,12 +40,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   return (
       <>
-          <nav className="bg-gray-800 shadow-md px-8 py-4 flex justify-between items-center backdrop-blur-md">
+          <nav className="sticky top-0 z-50 bg-gray-800 shadow-md px-8 py-4 flex justify-between items-center backdrop-blur-md">
 
           {/* Logo on the left */}
           <Link to="/" className="flex items-center space-x-2">
             <img src="/RAV logo1.png" alt="Rang Icon" className="w-15 h-10" />
-            <span className="text-1xl font-bold text-indigo-600">Rang Audio Visual</span>
+            <span className="text-1xl font-bold text-white">Rang Audio Visual</span>
           </Link>
 
           {/* Navigation links on the right */}
