@@ -65,7 +65,7 @@ export default function Photos() {
                             className={clsx(
                                 "w-full h-64 object-cover rounded-lg",
                                 "transform transition duration-200 ease-out",
-                                "group-hover:scale-105 group-hover:shadow-[0_0_25px_rgba(99,102,241,0.6)]"
+                                "group-hover:scale-105 group-hover:shadow-[0_0_25px_rgba(6,167,237,0.8)]"
                             )}
                         />
                     </motion.button>
