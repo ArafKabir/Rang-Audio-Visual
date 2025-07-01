@@ -6,7 +6,7 @@ import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { motion, type Variants } from "framer-motion";
 
-const SERVICE_ID = "service_oaj60h7";
+const SERVICE_ID = "service_zi6ca3e";
 const TEMPLATE_ID = "template_9retsjb";
 const PUBLIC_KEY = "SPUutnMH7qJtfENOD";
 
@@ -110,14 +110,14 @@ export default function ContactUs() {
                             <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <input
-                                        name="from_name"
+                                        name="name"
                                         placeholder="Your Name"
                                         required
                                         className="w-full px-4 py-2 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                     />
                                     <input
                                         type="email"
-                                        name="reply_to"
+                                        name="email"
                                         placeholder="Your Email"
                                         required
                                         className="w-full px-4 py-2 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
@@ -125,7 +125,7 @@ export default function ContactUs() {
                                 </div>
                                 <input
                                     name="subject"
-                                    placeholder="Subject"
+                                    placeholder="title"
                                     className="w-full px-4 py-2 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                 />
                                 <textarea

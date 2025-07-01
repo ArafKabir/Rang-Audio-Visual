@@ -54,7 +54,7 @@ export default function Home() {
 
     ]
   return (
-      <section className="bg-white text-black dark:bg-gray-950 dark:text-white">
+      <section className="bg-white text-black dark:bg-white dark:text-white">
         <ImageSlider />
           <div className="py-12 px-4 sm:px-6 lg:px-8">
               <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-12">
