@@ -1,6 +1,6 @@
 export function Footer() {
     return (
-        <footer className="bg-gray-900 text-gray-300 py-12">
+        <footer className="bg-gray-600 text-gray-300 py-12">
             <div className="container mx-auto grid grid-cols-1 md:grid-cols-5 gap-8 px-4">
                 {/* COMPANY */}
                 <div>
@@ -42,7 +42,7 @@ export function Footer() {
             {/* bottom bar */}
             <div className="border-t border-gray-500 mt-12 pt-6">
                 <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-gray-900">
                         © Rang Audio Visual 2025. All rights reserved.
                     </p>
                     {/* you could map over payment icons here */}

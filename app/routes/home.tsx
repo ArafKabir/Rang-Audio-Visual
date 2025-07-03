@@ -24,40 +24,40 @@ export default function Home() {
         {
             title: "LED Wall Install",
             description: "High quality LED wall installations for events, stages and venues.",
-            image: "/Feature Card Icons/screen.png",
+            image: "/feature-card-icons/screen.png",
         },
         {
             title: "Audio Support",
             description: "Professional sound setup and support for crystal-clear audio.",
-            image: "/Feature Card Icons/volume.png",
+            image: "/feature-card-icons/volume.png",
         },
         {
             title: "Lighting Support",
             description: "Dynamic lighting design and setup to enhance every moment.",
-            image: "/Feature Card Icons/spotlight.png",
+            image: "/feature-card-icons/spotlight.png",
         },
         {
             title: "Custom Content",
             description: "Tailored visuals and animations to display on your LED screens.",
-            image: "/Feature Card Icons/creative.png",
+            image: "/feature-card-icons/creative.png",
         },
         {
             title: "Photography",
             description: "Professional photography services for any occasion.",
-            image: "/Feature Card Icons/camera.png",
+            image: "/feature-card-icons/camera.png",
         },
         {
             title: "LED Ads",
             description: "Run visually captivating LED advertisements that get noticed.",
-            image: "/Feature Card Icons/ads.png",
+            image: "/feature-card-icons/ads.png",
         },
 
     ]
   return (
-      <section className="bg-white text-black dark:bg-white dark:text-white">
+      <section className="bg-white text-black">
         <ImageSlider />
           <div className="py-12 px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-12">
+              <h2 className="text-2xl font-bold text-center text-black  mb-12">
                   What We Do
               </h2>
               <motion.div

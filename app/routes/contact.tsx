@@ -34,7 +34,7 @@ export default function ContactUs() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-950 text-gray-100 flex flex-col">
+        <div className="min-h-screen bg-white text-gray-100 flex flex-col">
             {/* ─── Hero with background image ─────────────────── */}
             <div
                 className="relative h-[300px] bg-cover bg-center flex items-center justify-center"
@@ -48,7 +48,7 @@ export default function ContactUs() {
                     transition={{ duration: 0.6 }}
                     className="relative z-10 text-center px-4 max-w-2xl"
                 >
-                    <h1 className="text-4xl font-bold mb-4">Get in touch</h1>
+                    <h1 className="font-sans text-4xl font-bold mb-4">Get in touch</h1>
                     <p className="text-gray-200">
                         If you would like to find out more about how we can help you, please give us a call or drop
                         us an email. We welcome your comments and suggestions.
@@ -59,7 +59,7 @@ export default function ContactUs() {
             {/* ─── Animated Contact Card ──────────────────────── */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 flex justify-center">
                 <motion.div
-                    className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-2 bg-gray-800 rounded-lg shadow-xl overflow-hidden"
+                    className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-2 bg-gray rounded-lg shadow-xl overflow-hidden"
                     variants={cardVariants}
                     initial="hidden"
                     whileInView="show"
@@ -70,11 +70,11 @@ export default function ContactUs() {
                         <h2 className="text-2xl font-semibold text-white">Contact Information</h2>
                         <ul className="space-y-4 text-sm text-indigo-100">
                             <li className="flex items-center gap-3">
-                                <img src="/Contact Icons/phone-call.png" alt="Phone" className="w-5 h-5" />
+                                <img src="/contact-icons/phone-call.png" alt="Phone" className="w-5 h-5" />
                                 <span>+1 403-399-4074</span>
                             </li>
                             <li className="flex items-center gap-3">
-                                <img src="/Contact Icons/mail.png" alt="Email" className="w-5 h-5" />
+                                <img src="/contact-icons/mail.png" alt="Email" className="w-5 h-5" />
                                 <span>
                   <a href="mailto:Rent4304@gmail.com" className="underline hover:text-indigo-200">Rent4304@gmail.com</a>,
                   <span className="mx-1" />
@@ -82,11 +82,11 @@ export default function ContactUs() {
                 </span>
                             </li>
                             <li className="flex items-center gap-3">
-                                <img src="/Contact Icons/location.png" alt="Address" className="w-5 h-5" />
+                                <img src="/contact-icons/location.png" alt="Address" className="w-5 h-5" />
                                 <span>Chestermere, AB, Canada, Alberta</span>
                             </li>
                             <li className="flex items-center gap-3">
-                                <img src="/Contact Icons/social-media.png" alt="Facebook" className="w-5 h-5" />
+                                <img src="/contact-icons/social-media.png" alt="Facebook" className="w-5 h-5" />
                                 <a
                                     href="https://www.facebook.com/profile.php?id=61561435937177"
                                     target="_blank"
@@ -100,7 +100,7 @@ export default function ContactUs() {
                     </div>
 
                     {/* Right form */}
-                    <div className="p-10 bg-gray-900/70 backdrop-blur">
+                    <div className="p-10 bg-gray-200 backdrop-blur">
                         {status === "success" ? (
                             <div className="text-center py-16">
                                 <h3 className="text-xl font-semibold text-green-400 mb-2">Thank you!</h3>
@@ -113,20 +113,22 @@ export default function ContactUs() {
                                         name="name"
                                         placeholder="Your Name"
                                         required
-                                        className="w-full px-4 py-2 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                        className="w-full px-4 py-2 rounded bg-white border border-gray-700 text-black placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                     />
+
                                     <input
                                         type="email"
                                         name="email"
                                         placeholder="Your Email"
                                         required
-                                        className="w-full px-4 py-2 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                        className="w-full px-4 py-2 rounded bg-white border border-gray-700 text-black placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                     />
                                 </div>
+
                                 <input
                                     name="subject"
-                                    placeholder="title"
-                                    className="w-full px-4 py-2 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                    placeholder="Subject"
+                                    className="w-full px-4 py-2 rounded bg-white border border-gray-700 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                 />
                                 <textarea
                                     name="message"
@@ -134,7 +136,7 @@ export default function ContactUs() {
                                     placeholder="Your Message (max 500 chars)"
                                     maxLength={500}
                                     required
-                                    className="w-full px-4 py-2 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                    className="w-full px-4 py-2 rounded bg-white border border-gray-700 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                 />
                                 {status === "error" && <p className="text-red-400 text-sm">Something went wrong. Please try again.</p>}
                                 <button

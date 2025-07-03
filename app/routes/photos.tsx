@@ -37,7 +37,7 @@ export default function Photos() {
 
     return (
         <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-screen-xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-2">
+            <h2 className="text-3xl font-bold text-center text-gray-800  mb-2">
                 Photo Gallery
             </h2>
             <p className="text-center text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12">
@@ -58,10 +58,13 @@ export default function Photos() {
                             setOpen(true);
                         }}
                         className="group focus:outline-none"
+                        whileHover={{ scale: 1.05, rotateZ: 1 }}
+                        whileTap={{ scale: 0.98 }}
                     >
                         <img
                             src={slide.src}
                             alt={slide.alt}
+                            loading="lazy"
                             className={clsx(
                                 "w-full h-64 object-cover rounded-lg",
                                 "transform transition duration-200 ease-out",

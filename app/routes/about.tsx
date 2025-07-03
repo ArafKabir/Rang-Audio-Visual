@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function AboutUs() {
     return (
-        <div className="min-h-screen bg-gray-950 text-gray-100 flex flex-col">
+        <div className="min-h-screen bg-white text-gray-100 flex flex-col">
             {/* ─── Hero with company logo ───────────────────────── */}
             <header className="flex flex-col items-center justify-center py-20 px-4 text-center">
                 <motion.img
@@ -17,7 +17,7 @@ export default function AboutUs() {
                     }}
                 />
                 <motion.h1
-                    className="text-4xl font-bold"
+                    className="text-4xl font-bold text-gray-900"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.3 }}
@@ -39,7 +39,11 @@ export default function AboutUs() {
             {/* ─── Owner Section ──────────────────────────────── */}
             <section className="flex justify-center px-4 pb-24">
                 <motion.div
-                    className="bg-gray-800 p-8 rounded-lg shadow-lg max-w-3xl w-full grid grid-cols-1 md:grid-cols-[160px_1fr] gap-8"
+                    className="
+                    bg-gray-200 p-8 rounded-lg shadow-lg max-w-3xl w-full
+                    grid grid-cols-1 md:grid-cols-[160px_1fr] gap-8
+                    hover:shadow-[0_0_30px_rgba(84,103,122,0.9)] transition-shadow duration-300
+  "
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
@@ -51,15 +55,15 @@ export default function AboutUs() {
                         <img
                             src="/owner.JPG" // 🔁 place owner photo here
                             alt="Company Owner"
-                            className="w-40 h-40 rounded-full object-cover border-4 border-indigo-600 shadow-md"
+                            className="w-40 h-40 rounded-full object-cover border-4 border-blue-900 shadow-md"
                         />
                     </div>
 
                     {/* Owner info */}
                     <div className="flex flex-col justify-center">
-                        <h2 className="text-2xl font-semibold text-indigo-400">Hasan Rahman</h2>
-                        <p className="text-gray-300 font-medium mb-2">Founder & Chief Visionary</p>
-                        <p className="text-gray-400">
+                        <h2 className="text-2xl font-semibold text-blue-900">Hasan Rahman</h2>
+                        <p className="text-gray-900 font-medium mb-2">Founder & Chief Visionary</p>
+                        <p className="text-gray-600">
                             Mr. Hasan has spent the last decade curating world‑class audio‑visual productions for
                             concerts, weddings, and corporate galas. His passion for cutting‑edge tech and
                             storytelling drives Rang AV's commitment to excellence.

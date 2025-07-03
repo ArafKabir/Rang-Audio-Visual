@@ -8,6 +8,6 @@ export default {
         './src/**/*.{js,ts,jsx,tsx}',
         './app/app.css',                // ← make sure the css file itself is listed
     ],
-    theme: { extend: {} },
+    theme: {},
     plugins: [],
 }

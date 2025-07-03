@@ -6,22 +6,24 @@ import "swiper/css/pagination";
 
 export function ImageSlider() {
     const slides = [
-        "/HomeCarousel/slide1.jpg",
-        "/HomeCarousel/slide2.jpg",
-        "/HomeCarousel/slide3.jpg",
-        "/HomeCarousel/slide4.jpg"
+        "/home-carousel/slide1.jpg",
+        "/home-carousel/slide2.jpg",
+        "/home-carousel/slide3.jpg",
+        "/home-carousel/slide4.jpg"
     ];
 
     return (
-        <div className="mx-auto max-w-screen-lg">
+        <div className="w-full max-w-screen-2xl mx-auto"> {/* wrapper controls overall width */}
             <Swiper
                 modules={[Autoplay, Pagination]}
                 loop
-                centeredSlides                    // NEW: keeps active slide in the middle
-                slidesPerView={"auto"}            // NEW: respect custom width we set in CSS
+                centeredSlides
+                slidesPerView="auto"
                 autoplay={{ delay: 3500, disableOnInteraction: false }}
                 pagination={{ clickable: true }}
-                className="w-full h-96 md:h-[32rem] rounded-lg"  /* keep height responsive */
+                /* wider + taller */
+                className="w-full  h-full md:h-[45rem] rounded-2xl overflow-hidden
+    "
             >
                 {slides.map((src) => (
                     <SwiperSlide key={src} className="relative">

@@ -40,7 +40,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   return (
       <>
-          <nav className="sticky top-0 z-50 bg-gray-800 shadow-md px-8 py-4 flex justify-between items-center backdrop-blur-md">
+          <nav className="sticky top-0 z-50 bg-white shadow-md px-8 py-4 flex justify-between items-center backdrop-blur-md">
 
           {/* Logo on the left */}
           <Link to="/" className="flex items-center space-x-2">
@@ -50,7 +50,9 @@ export default function App() {
 
           {/* Navigation links on the right */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
-                  flex space-x-8 text-gray-200 font-medium">
+                  flex space-x-8 text-black font-medium"
+
+          >
             <Link to="/" className="hover:text-indigo-600">Home</Link>
             <Link to="/about" className="hover:text-indigo-600">About Us</Link>
             <Link to="/pricing" className="hover:text-indigo-600">Pricing</Link>
