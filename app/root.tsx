@@ -12,30 +12,36 @@ import "./app.css";
 import {Footer} from "./components/Footer";
 import {DarkModeToggle} from "~/components/DarkModeToggle";
 
-
 export function Layout({ children }: { children: React.ReactNode }) {
-  return (
-      <html lang="en">
-      <head>
-        <Meta/>
-        <Links/>
-      </head>
-      <body className="flex flex-col min-h-screen">
-      {/* header/nav would go here */}
-      <header>{/* … */}</header>
+    return (
+        <html lang="en">
+        <head>
+            <Meta/>
+            <Links/>
+            {/* Load model-viewer script from CDN */}
+            <script
+                type="module"
+                src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+            ></script>
 
-      {/* page content */}
-      <main className="flex-grow">{children}</main>
+        </head>
+        <body className="flex flex-col min-h-screen">
+        {/* header/nav would go here */}
+        <header>{/* … */}</header>
 
-      {/* global footer */}
-      <Footer/>
+        {/* page content */}
+        <main className="flex-grow">{children}</main>
 
-      <ScrollRestoration/>
-      <Scripts/>
-      </body>
-      </html>
-  );
+        {/* global footer */}
+        <Footer />
+
+        <ScrollRestoration />
+        <Scripts />
+        </body>
+        </html>
+    );
 }
+
 
 export default function App() {
   return (
