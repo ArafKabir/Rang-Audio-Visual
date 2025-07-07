@@ -34,13 +34,12 @@ export default function ContactUs() {
     };
 
     return (
-        <div className="min-h-screen bg-white text-gray-100 flex flex-col">
-            {/* ─── Hero with background image ─────────────────── */}
+        <div className="min-h-screen bg-gray-50 text-gray-100 flex flex-col">
             <div
-                className="relative h-[300px] bg-cover bg-center flex items-center justify-center"
-                style={{ backgroundImage: "url('/images/get-in-touch-hero.jpg')" }} // 🔁 put your hero image in public/images
+                className="relative h-[300px]  bg-center flex items-center justify-center"
+                style={{ backgroundImage: "url('/support.png')" }}
             >
-                <div className="absolute inset-0 bg-indigo-700/60 backdrop-blur-sm" />
+                <div className="absolute inset-0 bg-blue-600/60 backdrop-blur-xs" />
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -128,7 +127,7 @@ export default function ContactUs() {
                                 <input
                                     name="subject"
                                     placeholder="Subject"
-                                    className="w-full px-4 py-2 rounded bg-white border border-gray-700 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                    className="w-full px-4 py-2 rounded bg-white border border-gray-700 placeholder-gray-600 text-black focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                 />
                                 <textarea
                                     name="message"
@@ -136,7 +135,7 @@ export default function ContactUs() {
                                     placeholder="Your Message (max 500 chars)"
                                     maxLength={500}
                                     required
-                                    className="w-full px-4 py-2 rounded bg-white border border-gray-700 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                    className="w-full px-4 py-2 rounded bg-white border border-gray-700 placeholder-gray-600 text-black focus:outline-none focus:ring-2 focus:ring-indigo-500"
                                 />
                                 {status === "error" && <p className="text-red-400 text-sm">Something went wrong. Please try again.</p>}
                                 <button

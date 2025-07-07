@@ -2,6 +2,7 @@ import type { Route } from "./+types/home";
 import { ImageSlider } from "~/components/ImageSlider";
 import { motion, type Variants, useScroll, useTransform } from "framer-motion";
 import { FeatureCard } from "~/components/FeatureCard";
+import {FAQ} from "~/components/FAQ";
 import { useEffect } from "react";
 
 // Declare the custom element to avoid JSX/TS errors
@@ -81,7 +82,7 @@ export default function Home() {
     // @ts-ignore
     // @ts-ignore
     return (
-        <section className="bg-white text-black">
+        <section className="bg-gray-50 text-black">
             <motion.div
                 initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -104,8 +105,12 @@ export default function Home() {
                     ))}
                 </motion.div>
 
-                {/* AR Section */}
-                <div className="mt-20">
+
+                <motion.div className="bg-white mt-20 rounded-lg shadow-lg p-8 w-full max-w-screen-2xl mx-auto"
+                            initial={{ opacity: 0, y: 60 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}>
                     <h2 className="text-xl font-semibold text-center mb-4">Experience Our LED Screen in AR</h2>
                     <model-viewer
                         src="/models/led-screen.glb"
@@ -120,7 +125,8 @@ export default function Home() {
                             View in your space
                         </button>
                     </model-viewer>
-                </div>
+                </motion.div>
+                <FAQ/>
             </div>
         </section>
     );
