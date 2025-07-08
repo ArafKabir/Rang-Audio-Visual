@@ -44,7 +44,6 @@ export default function Photos() {
                 Browse our gallery showcasing event setups, LED walls, and moments with our satisfied clients.
             </p>
 
-            {/* Tailwind responsive grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {slides.map((slide, i) => (
                     <motion.button
@@ -75,7 +74,6 @@ export default function Photos() {
                 ))}
             </div>
 
-            {/* Lightbox */}
             {open && (
                 <Lightbox
                     open={open}

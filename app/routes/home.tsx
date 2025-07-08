@@ -5,7 +5,7 @@ import { FeatureCard } from "~/components/FeatureCard";
 import {FAQ} from "~/components/FAQ";
 import { useEffect } from "react";
 
-// Declare the custom element to avoid JSX/TS errors
+
 declare global {
     namespace JSX {
         interface IntrinsicElements {
@@ -79,8 +79,7 @@ export default function Home() {
         document.head.appendChild(script);
     }, []);
 
-    // @ts-ignore
-    // @ts-ignore
+
     return (
         <section className="bg-gray-50 text-black">
             <motion.div

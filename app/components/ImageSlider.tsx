@@ -39,7 +39,6 @@ export function ImageSlider() {
                 transition-colors duration-300
               "
                         >
-                            {/* spinning‑in fill effect */}
                             <span
                                 className="
                   absolute inset-0 bg-indigo-600/70

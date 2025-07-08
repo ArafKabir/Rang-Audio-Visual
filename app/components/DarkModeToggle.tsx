@@ -14,7 +14,6 @@ export function DarkModeToggle(){
             : "light";
     });
 
-    // apply theme class & persist
     useEffect(() => {
         const root = document.documentElement;
         if (theme === "dark") {
@@ -25,7 +24,6 @@ export function DarkModeToggle(){
         localStorage.setItem("theme", theme);
     }, [theme]);
 
-    // click handler flips theme
     const toggle = () => {
         setTheme((t) => (t === "dark" ? "light" : "dark"));
     };

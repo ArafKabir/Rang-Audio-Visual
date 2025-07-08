@@ -1,7 +1,3 @@
-// pages/ContactUs.tsx
-// Contact page with Framer‑Motion animated card + hero background.
-// Requirements: npm i @emailjs/browser framer-motion clsx (if not installed)
-
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { motion, type Variants } from "framer-motion";
@@ -10,7 +6,7 @@ const SERVICE_ID = "service_zi6ca3e";
 const TEMPLATE_ID = "template_9retsjb";
 const PUBLIC_KEY = "SPUutnMH7qJtfENOD";
 
-// Variants for the info+form card entrance
+
 const cardVariants: Variants = {
     hidden: { opacity: 0, y: 60, scale: 0.95 },
     show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease: "easeOut" } },
@@ -55,7 +51,6 @@ export default function ContactUs() {
                 </motion.div>
             </div>
 
-            {/* ─── Animated Contact Card ──────────────────────── */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 flex justify-center">
                 <motion.div
                     className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-2 bg-gray rounded-lg shadow-xl overflow-hidden"
@@ -64,7 +59,6 @@ export default function ContactUs() {
                     whileInView="show"
                     viewport={{ once: true, amount: 0.2 }}
                 >
-                    {/* Left info */}
                     <div className="bg-blue-600 p-10 space-y-6">
                         <h2 className="text-2xl font-semibold text-white">Contact Information</h2>
                         <ul className="space-y-4 text-sm text-indigo-100">
@@ -98,7 +92,6 @@ export default function ContactUs() {
                         </ul>
                     </div>
 
-                    {/* Right form */}
                     <div className="p-10 bg-gray-200 backdrop-blur">
                         {status === "success" ? (
                             <div className="text-center py-16">
