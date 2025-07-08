@@ -12,7 +12,7 @@ export default defineConfig({
     host: true,                     // listen on 0.0.0.0 (needed for Ngrok)
     allowedHosts: [
       "127.0.0.1",
-      "9d3c-59-153-103-135.ngrok-free.app"
+      "00f83e10b671.ngrok-free.app"
     ],
   },
 });

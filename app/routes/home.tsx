@@ -116,6 +116,7 @@ export default function Home() {
                         src="/models/led-screen.glb"
                         ios-src="/models/led-screen.usdz"
                         ar
+                        ar-placement="floor"
                         ar-modes="scene-viewer quick-look webxr"
                         camera-controls
                         auto-rotate
