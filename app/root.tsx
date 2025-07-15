@@ -18,7 +18,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <head>
             <Meta/>
             <Links/>
-            {/* Load model-viewer script from CDN */}
             <script
                 type="module"
                 src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
