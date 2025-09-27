@@ -67,6 +67,16 @@ export default function AboutUs() {
                             storytelling drives Rang AV's commitment to excellence."
                         </p>
                     </div>
+
+                    <div className="flex flex-col justify-center">
+                        <h2 className="text-2xl font-semibold text-blue-900">Kazi Al Araf Kabir</h2>
+                        <p className="text-gray-900 font-medium mb-2">Technical Operations Lead</p>
+                        <p className="text-gray-700">
+                            Kazi Al Araf Kabir is the Technical Operations Lead and the driving force behind the seamless execution of our LED screen rental projects and our digital presence.
+
+                            Araf started with the company two years ago as a dedicated member of the installation team and quickly advanced to overseeing technical operations. His role is uniquely diverse: he leads our on-site installation crews, serves as the primary live event video operator, and is the key resource for all complex hardware and signal troubleshooting. Beyond the physical setup, Araf single-handedly developed and maintains this company website, ensuring our digital platform is as reliable and professional as our on-site services.
+                        </p>
+                    </div>
                 </motion.div>
             </section>
         </div>
