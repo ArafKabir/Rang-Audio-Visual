@@ -59,11 +59,11 @@ export default function AboutUs() {
 
                     <div className="flex flex-col justify-center">
                         <h2 className="text-2xl font-semibold text-blue-900">Hasan Rahman</h2>
-                        <p className="text-gray-900 font-medium mb-2">Founder & Chief Visionary</p>
+                        <p className="text-gray-900 font-medium mb-2">CEO</p>
                         <p className="text-gray-700">
-                            "Mr. Hasan has spent the last decade curating world‑class audio‑visual productions for
-                            concerts, weddings, and corporate galas. His passion for cutting‑edge tech and
-                            storytelling drives Rang AV's commitment to excellence."
+                            Mr. Hasan is the Chief Executive Officer (CEO) and founder of Rang Audio Visual, with primary responsibility for overall business strategy, financial oversight, and scalable company growth.
+
+                            His leadership is built on practical experience: he started the business as the Installation Team Lead, giving him a deep, operational understanding of every technical requirement for LED screen production. Today, Mr. Hasan uses that essential knowledge to drive the company's executive functions. His focus is on strategic sales, major client acquisition, and managing long-term partnerships, ensuring the business remains financially stable and competitive in the AV solutions market.
                         </p>
                     </div>
 
