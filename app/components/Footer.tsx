@@ -17,7 +17,7 @@ export function Footer() {
                     <h4 className="text-white font-semibold mb-4">SUPPORT</h4>
                     <ul className="space-y-2">
                         <li><a href="/how-to-pay" className="hover:text-white">How to Pay</a></li>
-                        <li><a href="/articles" className="hover:text-white">Articles</a></li>
+
                         <li><a href="/contact" className="hover:text-white">Contact us</a></li>
                     </ul>
                 </div>
@@ -25,7 +25,10 @@ export function Footer() {
                 <div>
                     <h4 className="text-white font-semibold mb-4">QUICK LINKS</h4>
                     <ul className="space-y-2">
-                        <li><a href="https://www.facebook.com/profile.php?id=61561435937177" className="hover:text-white">Like our Page</a></li>
+                        <li><a href="https://www.facebook.com/profile.php?id=61561435937177" className="hover:text-white">Facebook Page</a></li>
+                    </ul>
+                    <ul className="space-y-2">
+                        <li><a href="https://www.instagram.com/rangaudiovisual" className="hover:text-white">Instagram</a></li>
                     </ul>
                 </div>
 
