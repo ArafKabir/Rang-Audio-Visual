@@ -6,4 +6,5 @@ export default [
     route("pricing", "routes/pricing.tsx"),
     route("contact", "routes/contact.tsx"),
     route("photos", "routes/photos.tsx"),
+    route("privacy", "routes/privacy.tsx"),
 ] satisfies RouteConfig;
