@@ -81,7 +81,7 @@ export default function Home() {
 
 
     return (
-        <section className="bg-gray-50 text-black">
+        <section className=" text-black">
             <motion.div
                 initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}

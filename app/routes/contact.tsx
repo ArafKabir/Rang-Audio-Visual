@@ -30,7 +30,7 @@ export default function ContactUs() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 text-gray-100 flex flex-col">
+        <div className="min-h-screen  text-gray-100 flex flex-col">
             <div
                 className="relative h-[300px]  bg-center flex items-center justify-center"
                 style={{ backgroundImage: "url('/support.png')" }}
