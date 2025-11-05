@@ -32,7 +32,7 @@ export function DarkModeToggle(){
         <button
             onClick={toggle}
             aria-label="Toggle dark mode"
-            className="p-2 rounded focus:outline-none focus:ring"
+            className="p-2 rounded focus:outline-none"
         >
             {theme === "dark" ? (
                 <img src={SunIcon} alt="Switch to light mode" className="w-6 h-6" />

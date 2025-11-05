@@ -37,10 +37,10 @@ export default function Photos() {
 
     return (
         <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-screen-xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-800  mb-2">
+            <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-gray-200  mb-2">
                 Photo Gallery
             </h2>
-            <p className="text-center text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12">
+            <p className="text-center text-gray-900 dark:text-gray-100 max-w-2xl mx-auto mb-12">
                 Browse our gallery showcasing event setups, LED walls, and moments with our satisfied clients.
             </p>
 

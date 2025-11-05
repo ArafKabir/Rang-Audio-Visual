@@ -13,7 +13,7 @@ export function ImageSlider() {
     ];
 
     return (
-        <div className="w-full max-w-screen-2xl mx-auto"> {/* wrapper controls overall width */}
+        <div className="mt-[50px] w-full max-w-screen-2xl mx-auto"> {/* wrapper controls overall width */}
             <Swiper
                 modules={[Autoplay, Pagination]}
                 loop

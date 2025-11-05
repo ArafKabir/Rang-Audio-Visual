@@ -30,7 +30,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             className="
                     flex flex-col min-h-screen
                     bg-gradient-to-br from-blue-950 via-blue-200 to-pink-300
-                    dark:from-gray-950 dark:via-gray-700 dark:to-black
+                    dark:from-gray-950 dark:via-gray-700 dark:to-blue-950
                     transition-colors duration-700
                 "
         >
@@ -59,6 +59,8 @@ export default function App() {
                 { label: "Home", href: "/", ariaLabel: "Go to Home" },
                 { label: "About Us", href: "/about", ariaLabel: "Learn about us" },
                 { label: "Contact", href: "/contact", ariaLabel: "Contact us" },
+                { label: "Privacy Policy", href: "/privacy", ariaLabel: "See privacy policy" },
+                { label: "Terms and Conditions", href: "/terms", ariaLabel: "See terms and conditions" },
             ],
         },
         {
@@ -68,6 +70,8 @@ export default function App() {
             links: [
                 { label: "Photos", href: "/photos", ariaLabel: "See photos" },
                 { label: "Pricing", href: "/pricing", ariaLabel: "View pricing" },
+                { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61561435937177", ariaLabel: "Facebook Page" },
+                { label: "Instagram", href: "https://www.instagram.com/rangaudiovisual", ariaLabel: "Instagram Page" },
             ],
         },
         {
@@ -92,11 +96,12 @@ export default function App() {
                 className="
                 top-4
                 backdrop-blur-md
-                border border-white/20 dark:border-gray-700
+
                 rounded-2xl
                 shadow-lg
                 transition-all duration-500
               "
+
                 buttonBgColor="transparent"
                 buttonTextColor="#ffffff"
             />

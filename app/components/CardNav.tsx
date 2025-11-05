@@ -1,7 +1,8 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { GoArrowUpRight } from 'react-icons/go';
-import { DarkModeToggle } from '~/components/DarkModeToggle'; // ✅ import your toggle
+import { DarkModeToggle } from '~/components/DarkModeToggle';
+import {Link} from "react-router";
 
 type CardNavLink = {
   label: string;
@@ -140,10 +141,11 @@ const CardNav: React.FC<CardNavProps> = ({
         <nav
             ref={navRef}
             className={`card-nav ${isExpanded ? 'open' : ''} block h-[60px] p-0 rounded-xl shadow-md relative overflow-hidden will-change-[height]`}
-            style={{ backgroundColor: baseColor }}
+            style={{backgroundColor: baseColor}}
         >
           {/* Top Bar */}
-          <div className="card-nav-top absolute inset-x-0 top-0 h-[60px] flex items-center justify-between p-2 pl-[1.1rem] z-[2]">
+          <div
+              className="card-nav-top absolute inset-x-0 top-0 h-[60px] flex items-center justify-between p-2 pl-[1.1rem] z-[2]">
             {/* Hamburger */}
             <div
                 className={`hamburger-menu ${isHamburgerOpen ? 'open' : ''} group h-full flex flex-col items-center justify-center cursor-pointer gap-[6px] order-2 md:order-none`}
@@ -151,7 +153,7 @@ const CardNav: React.FC<CardNavProps> = ({
                 role="button"
                 aria-label={isExpanded ? 'Close menu' : 'Open menu'}
                 tabIndex={0}
-                style={{ color: menuColor || '#000' }}
+                style={{color: menuColor || '#000'}}
             >
               <div
                   className={`hamburger-line w-[30px] h-[2px] bg-current transition-all duration-300 ease-linear ${
@@ -166,13 +168,19 @@ const CardNav: React.FC<CardNavProps> = ({
             </div>
 
             {/*  Logo */}
-            <div className="logo-container flex items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none">
-              <img src={logo} alt={logoAlt} className="logo h-[28px]" />
+            <div
+                className="logo-container flex items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none">
+              <Link to="/" aria-label="Go to home page">
+                <img
+                    src={logo}
+                    alt={logoAlt}
+                    className="logo h-[30px] md:h-[40px] w-auto cursor-pointer transition-transform duration-300 hover:scale-105"
+                />
+              </Link>
             </div>
-
             {/* 🌙 Dark Mode Toggle (replaces Get Started) */}
             <div className="hidden md:flex items-center justify-center px-3 h-full">
-              <DarkModeToggle /> {/* ✅ works as normal */}
+              <DarkModeToggle/> {/* ✅ works as normal */}
             </div>
           </div>
 
@@ -188,7 +196,7 @@ const CardNav: React.FC<CardNavProps> = ({
                     key={`${item.label}-${idx}`}
                     className="nav-card select-none relative flex flex-col gap-2 p-[12px_16px] rounded-[calc(0.75rem-0.2rem)] min-w-0 flex-[1_1_auto] h-auto min-h-[60px] md:h-full md:min-h-0 md:flex-[1_1_0%]"
                     ref={setCardRef(idx)}
-                    style={{ backgroundColor: item.bgColor, color: item.textColor }}
+                    style={{backgroundColor: item.bgColor, color: item.textColor}}
                 >
                   <div className="nav-card-label font-normal tracking-[-0.5px] text-[18px] md:text-[22px]">
                     {item.label}
@@ -201,7 +209,7 @@ const CardNav: React.FC<CardNavProps> = ({
                             href={lnk.href}
                             aria-label={lnk.ariaLabel}
                         >
-                          <GoArrowUpRight className="nav-card-link-icon shrink-0" aria-hidden="true" />
+                          <GoArrowUpRight className="nav-card-link-icon shrink-0" aria-hidden="true"/>
                           {lnk.label}
                         </a>
                     ))}
