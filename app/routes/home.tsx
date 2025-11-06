@@ -92,7 +92,7 @@ export default function Home() {
             </motion.div>
 
             <div className="py-12 px-4 sm:px-6 lg:px-8">
-                <h2 className="text-2xl font-bold text-center text-black mb-12">What We Do</h2>
+                <h2 className="text-2xl font-bold text-center text-black mb-12 dark:text-gray-200">Our Services</h2>
                 <motion.div
                     className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-screen-lg mx-auto"
                     variants={containerVariants}
@@ -105,7 +105,8 @@ export default function Home() {
                 </motion.div>
 
 
-                <motion.div className="bg-white mt-20 rounded-lg shadow-lg p-8 w-full max-w-screen-2xl mx-auto"
+                <motion.div className="bg-gradient-to-br from-gray-300 via-blue-200 to-blue-900
+                    dark:from-gray-950 dark:via-gray-500 dark:to-blue-950 mt-20 rounded-lg shadow-lg p-8 w-full max-w-screen-2xl mx-auto"
                             initial={{ opacity: 0, y: 60 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}

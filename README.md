@@ -60,7 +60,7 @@ The containerized application can be deployed to any platform that supports Dock
 - AWS ECS
 - Google Cloud Run
 - Azure Container Apps
-- Digital Ocean App Platform
+- Digital Ocean Root Platform
 - Fly.io
 - Railway
 

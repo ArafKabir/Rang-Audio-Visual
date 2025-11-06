@@ -8,8 +8,12 @@ export default {
         './src/**/*.{js,ts,jsx,tsx}',
         './app/app.css',
     ],
-    theme: {
-        extend: {},
+    ttheme: {
+        extend: {
+            fontFamily: {
+                sans: ['Bricolage', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            },
+        },
     },
     plugins: [],
 };

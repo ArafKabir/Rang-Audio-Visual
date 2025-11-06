@@ -8,14 +8,22 @@
 @tailwind utilities;
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: "Bricolage", ui-sans-serif, system-ui, sans-serif,
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
+@font-face {
+  font-family: 'Bricolage';
+  src: local('Bricolage'),
+  url('./fonts/Bricolage.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @layer base {
   html,
   body {
-    @apply bg-gray-50 text-black
-    transition-colors duration-300 ease-in-out;
+    @apply bg-gray-50 text-black font-sans transition-colors duration-300 ease-in-out;
   }
 }
 

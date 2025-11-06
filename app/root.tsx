@@ -11,7 +11,8 @@ import type { Route } from "./+types/root";
 import "./app.css";
 import { Footer } from "./components/Footer";
 import { DarkModeToggle } from "~/components/DarkModeToggle";
-import CardNav from "./components/CardNav"; // ✅ import your new CardNav component
+import CardNav from "./components/CardNav";
+import {AuthProvider} from "~/context/AuthContext"; // ✅ import your new CardNav component
 
 export function Layout({ children }: { children: React.ReactNode }) {
     return (
@@ -29,18 +30,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <body
             className="
                     flex flex-col min-h-screen
-                    bg-gradient-to-br from-blue-950 via-blue-200 to-pink-300
+                    bg-gradient-to-br from-[#CFD7E6] via-[#B8D6D6] to-[#7A93A3]
                     dark:from-gray-950 dark:via-gray-700 dark:to-blue-950
                     transition-colors duration-700
                 "
         >
-        <header>{/* global header (kept empty since CardNav is used in App) */}</header>
-
-        {/* page content */}
-        <main className="flex-grow">{children}</main>
-
-        {/* global footer */}
-        <Footer />
+        <AuthProvider>
+            <header></header>
+            <main className="flex-grow">{children}</main>
+            <Footer />
+        </AuthProvider>
 
         <ScrollRestoration />
         <Scripts />
@@ -49,7 +48,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
     );
 }
 
-export default function App() {
+export default function Root() {
     const navItems = [
         {
             label: "Main",

@@ -22,7 +22,7 @@ export function ImageSlider() {
                 autoplay={{ delay: 3500, disableOnInteraction: false }}
                 pagination={{ clickable: true }}
                 /* wider + taller */
-                className="w-full  h-full md:h-[45rem] rounded-2xl overflow-hidden
+                className="w-full  h-full md:h-[45rem]  overflow-hidden
     "
             >
                 {slides.map((src) => (
