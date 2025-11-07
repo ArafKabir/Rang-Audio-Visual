@@ -10,9 +10,8 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 import { Footer } from "./components/Footer";
-import { DarkModeToggle } from "~/components/DarkModeToggle";
 import CardNav from "./components/CardNav";
-import {AuthProvider} from "~/context/AuthContext"; // ✅ import your new CardNav component
+import {AuthProvider} from "~/context/AuthContext";
 
 export function Layout({ children }: { children: React.ReactNode }) {
     return (
