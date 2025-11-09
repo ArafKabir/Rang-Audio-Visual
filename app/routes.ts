@@ -16,7 +16,7 @@ export default [
 
     // event-related routes
     route("eventDetails/:id", "routes/eventDetails.tsx"),
-    route("addWorkSession/:eventId/:employeeId", "routes/addWorkSession.tsx"),
+    route("/admin/event/:eventId/addWorkSession/:employeeId", "routes/addWorkSession.tsx"),
 
     //employee-related routes
     route("addEmployee", "routes/addEmployee.tsx"),

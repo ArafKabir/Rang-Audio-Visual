@@ -12,6 +12,8 @@ import "./app.css";
 import { Footer } from "./components/Footer";
 import CardNav from "./components/CardNav";
 import {AuthProvider} from "~/context/AuthContext";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 export function Layout({ children }: { children: React.ReactNode }) {
     return (
@@ -35,9 +37,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 "
         >
         <AuthProvider>
-            <header></header>
-            <main className="flex-grow">{children}</main>
-            <Footer />
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <header></header>
+                <main className="flex-grow">{children}</main>
+                <Footer />
+            </LocalizationProvider>
         </AuthProvider>
 
         <ScrollRestoration />

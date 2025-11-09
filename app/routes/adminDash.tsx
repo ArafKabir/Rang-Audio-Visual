@@ -1,5 +1,6 @@
 import { useAuth } from "~/context/AuthContext";
 import { useNavigate } from "react-router";
+import SplitText from "~/components/SplitText"
 
 export default function AdminDash() {
     const { admin } = useAuth();
@@ -57,12 +58,35 @@ export default function AdminDash() {
         <div className="min-h-screen py-12 px-6">
             <div className="max-w-6xl mx-auto">
                 <div className="mb-12 text-center">
-                    <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100">
-                        Welcome, {admin.name}!
-                    </h1>
-                    <p className="text-gray-600 dark:text-gray-400 mt-1">
-                        Manage events, employees, and your profile here.
-                    </p>
+                    <div className="flex flex-col items-center justify-center">
+
+                        <SplitText
+                            text= {`Welcome, ${admin.name}`}
+                            className="text-4xl font-extrabold text-indigo-600 dark:text-indigo-400"
+                            delay={80}
+                            duration={0.6}
+                            ease="power3.out"
+                            splitType="chars"
+                            from={{ opacity: 0, y: 40 }}
+                            to={{ opacity: 1, y: 0 }}
+                            threshold={0.1}
+                            rootMargin="-100px"
+                            textAlign="center"
+                        />
+                    </div>
+                    <SplitText
+                        text= {`Manage events, employees, and your profile here.`}
+                        className="text-gray-600 dark:text-gray-400 mt-1"
+                        delay={80}
+                        duration={0.8}
+                        ease="power3.out"
+                        splitType="words"
+                        from={{ opacity: 0, y: 40 }}
+                        to={{ opacity: 1, y: 0 }}
+                        threshold={0.1}
+                        rootMargin="-100px"
+                        textAlign="center"
+                    />
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -84,7 +108,7 @@ export default function AdminDash() {
                                         <button
                                             key={action.label}
                                             onClick={() => {
-                                                if (action.onClick) {
+                                                if ("onClick" in action) {
                                                     action.onClick();
                                                 } else {
                                                     navigate(action.href);

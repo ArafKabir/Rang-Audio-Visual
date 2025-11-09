@@ -41,8 +41,9 @@ export default function AdminLogin() {
                         </label>
                         <input
                             type="email"
+                            id="email"
                             value={email}
-                            autoComplete="email"
+                            autoComplete="on"
                             placeholder="Email"
                             onChange={(e) => setEmail(e.target.value)}
                             className="mt-1 w-full px-3 py-2 border rounded-lg bg-white dark:bg-gray-900

@@ -4,7 +4,7 @@ import { motion, type Variants, useScroll, useTransform } from "framer-motion";
 import { FeatureCard } from "~/components/FeatureCard";
 import {FAQ} from "~/components/FAQ";
 import { useEffect } from "react";
-
+import HeroBanner from "~/components/HeroBanner";
 
 declare global {
     namespace JSX {
@@ -82,14 +82,13 @@ export default function Home() {
 
     return (
         <section className=" text-black">
-            <motion.div
-                initial={{ opacity: 0, y: 60 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-            >
-                <ImageSlider />
-            </motion.div>
+            <HeroBanner
+                title="Crystal-clear sound. Picture-perfect visuals."
+                subtitle="Events, weddings, and productions—done right. Book a consultation and let’s make it seamless."
+                bgImageUrl="/home-carousel/slide1.jpg" // optional: place your image in /public
+                ctaPrimary={{ label: "Get a Quote", onClick: () => navigate("/contact") }}
+                ctaSecondary={{ label: "See Pricing", onClick: () => navigate("/pricing") }}
+            />
 
             <div className="py-12 px-4 sm:px-6 lg:px-8">
                 <h2 className="text-2xl font-bold text-center text-black mb-12 dark:text-gray-200">Our Services</h2>
