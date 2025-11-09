@@ -5,6 +5,7 @@ import { FeatureCard } from "~/components/FeatureCard";
 import {FAQ} from "~/components/FAQ";
 import { useEffect } from "react";
 import HeroBanner from "~/components/HeroBanner";
+import SplitText from "~/components/SplitText";
 
 declare global {
     namespace JSX {
@@ -38,32 +39,33 @@ export default function Home() {
         {
             title: "LED Wall Install",
             description: "High quality LED wall installations for events, stages and venues.",
-            image: "/feature-card-icons/screen.png",
+            image: "/gallery/1.jpg"
         },
         {
-            title: "Audio Support",
-            description: "Professional sound setup and support for crystal-clear audio.",
-            image: "/feature-card-icons/volume.png",
+            title: "Audio-Visual Playback",
+            description:
+                "Experience synchronized sound and visuals — play movies, live sports, or custom content on large LED screens with immersive audio systems.",
+            image: "/gallery/21.jpg"
         },
         {
-            title: "Lighting Support",
-            description: "Dynamic lighting design and setup to enhance every moment.",
-            image: "/feature-card-icons/spotlight.png",
+            title: "Event Photography",
+            description: "Professional photography services for any occasion.",
+            image: "/gallery/Photography.jpg"
+        },
+        {
+            title: "Live Stream",
+            description: "We provide real-time live streaming of your event directly to big LED screens or online platforms, ensuring every moment reaches your audience instantly.",
+            image: "/gallery/3.jpg"
         },
         {
             title: "Custom Content",
             description: "Tailored visuals and animations to display on your LED screens.",
-            image: "/feature-card-icons/creative.png",
-        },
-        {
-            title: "Photography",
-            description: "Professional photography services for any occasion.",
-            image: "/feature-card-icons/camera.png",
+            image: "/gallery/6.jpg"
         },
         {
             title: "LED Ads",
             description: "Run visually captivating LED advertisements that get noticed.",
-            image: "/feature-card-icons/ads.png",
+            image: "/gallery/ads.jpg"
         },
     ];
 
@@ -82,18 +84,26 @@ export default function Home() {
 
     return (
         <section className=" text-black">
-            <HeroBanner
-                title="Crystal-clear sound. Picture-perfect visuals."
-                subtitle="Events, weddings, and productions—done right. Book a consultation and let’s make it seamless."
-                bgImageUrl="/home-carousel/slide1.jpg" // optional: place your image in /public
-                ctaPrimary={{ label: "Get a Quote", onClick: () => navigate("/contact") }}
-                ctaSecondary={{ label: "See Pricing", onClick: () => navigate("/pricing") }}
-            />
-
+            <div className="mt-20 mb-40">
+                <HeroBanner/>
+            </div>
             <div className="py-12 px-4 sm:px-6 lg:px-8">
-                <h2 className="text-2xl font-bold text-center text-black mb-12 dark:text-gray-200">Our Services</h2>
+                <div className="flex justify-center items-center mb-10 w-full text-center">
+                    <SplitText
+                        text="Our Services"
+                        className="text-4xl font-extrabold text-indigo-600 dark:text-indigo-400 leading-tight tracking-tight text-center"
+                        delay={80}
+                        duration={0.6}
+                        ease="power3.out"
+                        splitType="chars"
+                        from={{ opacity: 0, y: 40 }}
+                        to={{ opacity: 1, y: 0 }}
+                        threshold={0.1}
+                        rootMargin="-100px"
+                    />
+                </div>
                 <motion.div
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-screen-lg mx-auto"
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-x-12 gap-y-16  mx-auto px-6"
                     variants={containerVariants}
                     initial="hidden"
                     animate="show"
@@ -104,7 +114,7 @@ export default function Home() {
                 </motion.div>
 
 
-                <motion.div className="bg-gradient-to-br from-gray-300 via-blue-200 to-blue-900
+                <motion.div className="mt-60 bg-gradient-to-br from-gray-300 via-blue-200 to-blue-900
                     dark:from-gray-950 dark:via-gray-500 dark:to-blue-950 mt-20 rounded-lg shadow-lg p-8 w-full max-w-screen-2xl mx-auto"
                             initial={{ opacity: 0, y: 60 }}
                             whileInView={{ opacity: 1, y: 0 }}

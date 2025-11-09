@@ -31,8 +31,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <body
             className="
                     flex flex-col min-h-screen
-                    bg-gradient-to-br from-[#CFD7E6] via-[#B8D6D6] to-[#7A93A3]
-                    dark:from-gray-950 dark:via-gray-700 dark:to-blue-950
+                    bg-gradient-to-br from-[#BFD4E0] via-[#6BB2C9] to-[#5F667D]
+                    dark:bg-[linear-gradient(180.4deg,_rgba(3,7,18,1)_0%,_rgba(55,65,81,1)_50%,_rgba(23,37,84,1)_100%)]
                     transition-colors duration-700
                 "
         >

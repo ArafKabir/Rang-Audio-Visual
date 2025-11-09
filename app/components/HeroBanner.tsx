@@ -26,7 +26,7 @@ export default function HeroBanner() {
     const [activeIndex, setActiveIndex] = useState(0);
 
     return (
-        <div className="relative w-full max-w-screen-2xl mx-auto h-[90vh] md:h-[45rem] rounded-3xl overflow-hidden shadow-2xl">
+        <div className="relative w-full max-w-screen mx-auto h-[90vh] md:h-[45rem] rounded-3xl overflow-hidden shadow-2xl">
 
             <ImageSlider onSlideChange={setActiveIndex} />
 
@@ -36,7 +36,7 @@ export default function HeroBanner() {
             {/* Text overlay */}
             <div className="absolute inset-0 flex flex-col justify-center items-start text-left text-white px-10 md:px-20 z-10 transition-all duration-700">
                 <SplitText
-                    key={slides[activeIndex].title} // 👈 re-triggers animation on slide change
+                    key={slides[activeIndex].title}
                     text={slides[activeIndex].title}
                     className="text-4xl md:text-6xl font-extrabold mb-3 drop-shadow-[0_4px_6px_rgba(0,0,0,0.4)]"
                     delay={80}
@@ -50,7 +50,21 @@ export default function HeroBanner() {
                 />
 
                 <p className="text-lg md:text-2xl font-light max-w-2xl text-white/90 mb-8 animate-fadeIn transition-opacity duration-700">
-                    {slides[activeIndex].subtitle}
+
+                    <SplitText
+                        key={slides[activeIndex].subtitle}
+                        text={slides[activeIndex].subtitle}
+                        className="text-4xl md:text-2xl font-extrabold mb-3 drop-shadow-[0_4px_6px_rgba(0,0,0,0.4)]"
+                        delay={80}
+                        duration={1}
+                        ease="power3.out"
+                        splitType="words"
+                        from={{ opacity: 0, x: -30 }}
+                        to={{ opacity: 1, x: 0 }}
+                        threshold={0.1}
+                        rootMargin="-100px"
+                    />
+
                 </p>
 
                 <Link
