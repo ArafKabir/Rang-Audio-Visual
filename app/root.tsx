@@ -37,9 +37,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en" className="scroll-smooth">
         <head>
-            <Meta />
+            <meta charSet="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+            <meta name="description" content="Rang Audio Visual - LED screen rentals and event production" />
+            <meta name="theme-color" content="#0E2348" />
+
+            <title>Rang Audio Visual</title>
+
             <Links />
-            {/* Model viewer script for AR LED previews */}
             <script
                 type="module"
                 src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
@@ -67,6 +72,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         </html>
     );
 }
+
 
 /* Main Root Component */
 export default function Root() {
