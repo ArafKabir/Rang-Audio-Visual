@@ -36,7 +36,7 @@ export default function SplitText({
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    // ✅ dynamic import ensures SSR doesn’t crash
+
     Promise.all([
       import("gsap/ScrollTrigger"),
       import("gsap/SplitText"),
@@ -58,7 +58,7 @@ export default function SplitText({
                   ? split.words
                   : split.lines;
 
-      // ✅ animate when in view
+
       gsap.fromTo(
           targets,
           from,
