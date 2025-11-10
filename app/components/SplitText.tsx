@@ -1,9 +1,15 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText as GSAPSplitText } from 'gsap/SplitText';
-import { useGSAP } from '@gsap/react';
+import gsap from "gsap";
+import {useGSAP} from "@gsap/react";
 
+if (typeof window !== "undefined") {
+  import("gsap/ScrollTrigger").then((module) => {
+    const ScrollTrigger = module.ScrollTrigger;
+    gsap.registerPlugin(ScrollTrigger);
+  });
+}
 gsap.registerPlugin(ScrollTrigger, GSAPSplitText, useGSAP);
 
 export interface SplitTextProps {
