@@ -1,6 +1,6 @@
 export function Footer() {
     return (
-        <footer className="bg-[#165666] dark:bg-[#0B334D] text-gray-300 py-12">
+        <footer className="bg-[#165666] dark:bg-[#071123] text-gray-300 py-12">
             <div className="container mx-auto grid grid-cols-1 md:grid-cols-5 gap-8 px-4">
 
                 <div>
@@ -44,7 +44,7 @@ export function Footer() {
 
             <div className="border-t border-gray-500 mt-12 pt-6">
                 <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
-                    <p className="text-sm text-gray-900">
+                    <p className="text-sm text-gray-400">
                         © Rang Audio Visual 2025. All rights reserved.
                     </p>
                     <div className="flex space-x-2 mt-4 md:mt-0">

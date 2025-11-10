@@ -31,8 +31,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <body
             className="
                     flex flex-col min-h-screen
-                    bg-gradient-to-br from-[#BFD4E0] via-[#6BB2C9] to-[#5F667D]
-                    dark:bg-[linear-gradient(180.4deg,_rgba(3,7,18,1)_0%,_rgba(55,65,81,1)_50%,_rgba(23,37,84,1)_100%)]
+                    bg-gradient-to-br from-[#CD98B6] via-[#6C95DE] to-[#8CF2EB]
+                    dark:from-[#070104] dark:via-[#0E2348] dark:to-[#34080B]
                     transition-colors duration-700
                 "
         >
@@ -62,7 +62,6 @@ export default function Root() {
                 { label: "About Us", href: "/about", ariaLabel: "Learn about us" },
                 { label: "Contact", href: "/contact", ariaLabel: "Contact us" },
                 { label: "Privacy Policy", href: "/privacy", ariaLabel: "See privacy policy" },
-                { label: "Terms and Conditions", href: "/terms", ariaLabel: "See terms and conditions" },
             ],
         },
         {

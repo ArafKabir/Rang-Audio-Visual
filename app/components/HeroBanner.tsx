@@ -26,7 +26,7 @@ export default function HeroBanner() {
     const [activeIndex, setActiveIndex] = useState(0);
 
     return (
-        <div className="relative w-full max-w-screen mx-auto h-[90vh] md:h-[45rem] rounded-3xl overflow-hidden shadow-2xl">
+        <div className="relative w-full max-w-screen mx-auto h-[80vh] md:h-[55rem] rounded-3xl overflow-hidden shadow-2xl">
 
             <ImageSlider onSlideChange={setActiveIndex} />
 

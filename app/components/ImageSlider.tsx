@@ -16,7 +16,7 @@ export function ImageSlider({ onSlideChange }: ImageSliderProps) {
     ];
 
     return (
-        <div className="w-full max-w-screen mx-auto h-[90vh] md:h-[45rem] rounded-3xl overflow-hidden shadow-2xl">
+        <div className="w-full max-w-screen mx-auto h-[90vh] md:h-[55rem] rounded-3xl overflow-hidden shadow-2xl">
             <Swiper
                 modules={[Autoplay, Pagination]}
                 loop

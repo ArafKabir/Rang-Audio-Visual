@@ -69,7 +69,7 @@ export function FeatureCard({
             )}
 
             {/* Overlay for slight dark tint when image exists */}
-            {image && <div className="absolute inset-0 bg-black/40" />}
+            {image && <div className="absolute inset-0 bg-black/10" />}
 
             {/* Text Content */}
             <div className="relative z-10">

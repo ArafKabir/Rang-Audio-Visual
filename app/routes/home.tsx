@@ -113,14 +113,26 @@ export default function Home() {
                     ))}
                 </motion.div>
 
-
-                <motion.div className="mt-60 bg-gradient-to-br from-gray-300 via-blue-200 to-blue-900
-                    dark:from-gray-950 dark:via-gray-500 dark:to-blue-950 mt-20 rounded-lg shadow-lg p-8 w-full max-w-screen-2xl mx-auto"
+                <div className="flex justify-center items-center mt-60 w-full text-center">
+                    <SplitText
+                        text="Experience Our LED Screen in AR"
+                        className="text-4xl font-extrabold text-indigo-600 dark:text-indigo-400 leading-tight tracking-tight text-center"
+                        delay={80}
+                        duration={0.6}
+                        ease="power3.out"
+                        splitType="chars"
+                        from={{ opacity: 0, y: 40 }}
+                        to={{ opacity: 1, y: 0 }}
+                        threshold={0.1}
+                        rootMargin="-100px"
+                    />
+                </div>
+                <motion.div className=" bg-gradient-to-br from-[#DCCDD5] via-[#5E81C0] to-[#81C4BF]
+                     dark:from-[#0D1117] dark:via-[#1B263B] dark:to-[#040B34] mt-10 rounded-lg shadow-lg p-8 w-full max-w-screen-2xl mx-auto"
                             initial={{ opacity: 0, y: 60 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}>
-                    <h2 className="text-xl font-semibold text-center mb-4">Experience Our LED Screen in AR</h2>
                     <model-viewer
                         src="/models/led-screen.glb"
                         ios-src="/models/led-screen.usdz"
