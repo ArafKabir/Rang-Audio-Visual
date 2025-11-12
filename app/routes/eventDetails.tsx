@@ -4,6 +4,7 @@ import {
     getEventById,
     getEmployeesForEvent,
     assignEmployeeToEvent,
+    deleteEvent,
     type EventDTO,
     type EventEmployeeDTO,
 } from "~/api/eventApi";
@@ -17,6 +18,7 @@ export default function EventDetails() {
     const [selectedEmployee, setSelectedEmployee] = useState<number | null>(null);
     const [loading, setLoading] = useState(true);
     const [assigning, setAssigning] = useState(false);
+    const [deleting, setDeleting] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -58,6 +60,23 @@ export default function EventDetails() {
         }
     }
 
+    async function handleDeleteEvent() {
+        if (!id) return;
+        const confirmDelete = window.confirm("Are you sure you want to delete this event?");
+        if (!confirmDelete) return;
+
+        try {
+            setDeleting(true);
+            await deleteEvent(Number(id));
+            navigate("/adminDash");
+        } catch (err) {
+            console.error("Error deleting event:", err);
+            alert("Failed to delete event.");
+        } finally {
+            setDeleting(false);
+        }
+    }
+
     if (loading)
         return (
             <div className="flex justify-center items-center h-[70vh] text-gray-600 dark:text-gray-300">
@@ -80,16 +99,28 @@ export default function EventDetails() {
             </button>
 
             {/* Event Info */}
-            <div className="bg-white dark:bg-gray-800 shadow-lg rounded-xl p-6 mb-8">
-                <h1 className="text-2xl font-bold mb-2 text-gray-900 dark:text-gray-100">
-                    {event.name}
-                </h1>
-                <p className="text-gray-700 dark:text-gray-300">
-                    Location: {event.location}
-                </p>
-                <p className="text-gray-700 dark:text-gray-300">
-                    Date: {new Date(event.date).toLocaleDateString()}
-                </p>
+            <div className="bg-white dark:bg-gray-800 shadow-lg rounded-xl p-6 mb-8 flex flex-col sm:flex-row sm:justify-between sm:items-center">
+                <div>
+                    <h1 className="text-2xl font-bold mb-2 text-gray-900 dark:text-gray-100">
+                        {event.name}
+                    </h1>
+                    <p className="text-gray-700 dark:text-gray-300">
+                        Location: {event.location}
+                    </p>
+                    <p className="text-gray-700 dark:text-gray-300">
+                        Date: {new Date(event.date).toLocaleDateString()}
+                    </p>
+                </div>
+
+                {/* Delete Button */}
+                <button
+                    onClick={handleDeleteEvent}
+                    disabled={deleting}
+                    className="mt-4 sm:mt-0 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700
+          transition disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                    {deleting ? "Deleting..." : "Delete Event"}
+                </button>
             </div>
 
             {/* Employee Assignment */}
@@ -103,7 +134,8 @@ export default function EventDetails() {
                         <select
                             value={selectedEmployee ?? ""}
                             onChange={(e) => setSelectedEmployee(Number(e.target.value))}
-                            className="border border-gray-300 dark:border-gray-700 rounded-md px-3 py-1 bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100"
+                            className="border border-gray-300 dark:border-gray-700 rounded-md px-3 py-1
+              bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100"
                         >
                             <option value="">Select Employee</option>
                             {allEmployees.map((emp) => (
@@ -116,7 +148,8 @@ export default function EventDetails() {
                         <button
                             onClick={handleAssignEmployee}
                             disabled={!selectedEmployee || assigning}
-                            className="bg-indigo-500 hover:bg-indigo-600 disabled:opacity-50 text-white rounded-md px-3 py-1"
+                            className="bg-indigo-500 hover:bg-indigo-600 disabled:opacity-50
+              text-white rounded-md px-3 py-1"
                         >
                             {assigning ? "Adding..." : "Add"}
                         </button>
@@ -136,7 +169,9 @@ export default function EventDetails() {
                                 onClick={() =>
                                     navigate(`/admin/event/${id}/addWorkSession/${emp.employeeId}`)
                                 }
-                                className="flex justify-between items-center bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition cursor-pointer rounded-lg px-4 py-3"
+                                className="flex justify-between items-center bg-gray-100 dark:bg-gray-700
+                hover:bg-gray-200 dark:hover:bg-gray-600 transition cursor-pointer
+                rounded-lg px-4 py-3"
                             >
                                 <div>
                                     <p className="font-medium text-gray-900 dark:text-gray-100">

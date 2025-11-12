@@ -1,82 +1,73 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createEmployee } from "~/api/employeeApi";
-import type { EmployeeDTO } from "~/api/employeeApi";
+import { updateAdmin, type AdminDTO } from "~/api/adminApi";
+import { useAuth } from "~/context/AuthContext";
 
-export default function AddEmployee() {
+export default function UpdateAdmin() {
+    const { admin, setAdmin } = useAuth();
     const navigate = useNavigate();
 
-    const [employee, setEmployee] = useState<EmployeeDTO>({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phoneNumber: "",
-        hourlyRate: 0,
+    const [form, setForm] = useState<AdminDTO>({
+        id: admin?.id || undefined,
+        name: admin?.name || "",
+        email: admin?.email || "",
+        password: null,
+        phoneNumber: admin?.phoneNumber || "",
+        role: admin?.role || "ADMIN",
     });
 
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [success, setSuccess] = useState(false);
 
-    const handleChange = (field: keyof EmployeeDTO, value: any) => {
-        setEmployee((prev) => ({ ...prev, [field]: value }));
+
+    const handleChange = (field: keyof AdminDTO, value: string) => {
+        setForm((prev) => ({ ...prev, [field]: value }));
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setError(null);
         setLoading(true);
+        setError(null);
+        setSuccess(false);
 
         try {
-            await createEmployee(employee);
-            navigate("/adminDash");
+            const updatedAdmin = await updateAdmin(form);
+            setSuccess(true);
+            setAdmin(updatedAdmin);
+            setTimeout(() => navigate("/adminDash"), 1000);
         } catch (err: any) {
-            console.error("Error creating employee:", err);
-            setError(err.message || "Failed to create employee");
+            console.error("Error updating admin:", err);
+            setError(err.message || "Failed to update admin info");
         } finally {
             setLoading(false);
         }
+
     };
 
     return (
         <div className="flex items-center justify-center min-h-screen">
             <div className="w-full max-w-md p-8 rounded-xl bg-[#C8E4E6] dark:bg-gray-800 shadow-lg">
                 <h1 className="text-2xl font-bold mb-6 text-center text-gray-800 dark:text-gray-100">
-                    Add New Employee
+                    Update Admin Info
                 </h1>
 
                 {error && <p className="text-red-500 text-center mb-4">{error}</p>}
+                {success && <p className="text-green-500 text-center mb-4">✅ Updated successfully!</p>}
 
                 <form onSubmit={handleSubmit} className="space-y-4">
-                    {/* First Name */}
+                    {/* Name */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                            First Name
+                            Name
                         </label>
                         <input
                             type="text"
-                            value={employee.firstName}
-                            onChange={(e) => handleChange("firstName", e.target.value)}
-                            placeholder="First Name"
+                            value={form.name}
+                            onChange={(e) => handleChange("name", e.target.value)}
                             className="mt-1 w-full px-3 py-2 border rounded-lg bg-white dark:bg-gray-900
-              border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100
-              focus:ring-indigo-500 focus:border-indigo-500"
-                            required
-                        />
-                    </div>
-
-                    {/* Last Name */}
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                            Last Name
-                        </label>
-                        <input
-                            type="text"
-                            value={employee.lastName}
-                            onChange={(e) => handleChange("lastName", e.target.value)}
-                            placeholder="Last Name"
-                            className="mt-1 w-full px-3 py-2 border rounded-lg bg-white dark:bg-gray-900
-              border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100
-              focus:ring-indigo-500 focus:border-indigo-500"
+                border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100
+                focus:ring-indigo-500 focus:border-indigo-500"
                             required
                         />
                     </div>
@@ -88,52 +79,61 @@ export default function AddEmployee() {
                         </label>
                         <input
                             type="email"
-                            value={employee.email}
+                            value={form.email}
                             onChange={(e) => handleChange("email", e.target.value)}
-                            placeholder="Email"
                             className="mt-1 w-full px-3 py-2 border rounded-lg bg-white dark:bg-gray-900
-              border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100
-              focus:ring-indigo-500 focus:border-indigo-500"
+                border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100
+                focus:ring-indigo-500 focus:border-indigo-500"
                             required
                         />
                     </div>
 
-                    {/* Phone Number */}
+                    {/* Password */}
+                    <div>
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                            New Password (optional)
+                        </label>
+                        <input
+                            type="password"
+                            value={form.password ?? ""}
+                            onChange={(e) => handleChange("password", e.target.value)}
+                            placeholder="Leave blank to keep current"
+                            className="mt-1 w-full px-3 py-2 border rounded-lg bg-white dark:bg-gray-900
+                border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100
+                focus:ring-indigo-500 focus:border-indigo-500"
+                        />
+                    </div>
+
+                    {/* Phone */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                             Phone Number
                         </label>
                         <input
                             type="tel"
-                            value={employee.phoneNumber}
+                            value={form.phoneNumber}
                             onChange={(e) => handleChange("phoneNumber", e.target.value)}
-                            placeholder="Phone Number"
                             className="mt-1 w-full px-3 py-2 border rounded-lg bg-white dark:bg-gray-900
-              border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100
-              focus:ring-indigo-500 focus:border-indigo-500"
+                border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100
+                focus:ring-indigo-500 focus:border-indigo-500"
                             required
                         />
                     </div>
 
-                    {/* Hourly Rate */}
+                    {/* Role */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                            Hourly Rate (CAD)
+                            Role
                         </label>
-                        <input
-                            type="number"
-                            min="0"
-                            step="0.1"
-                            value={employee.hourlyRate}
-                            onChange={(e) =>
-                                handleChange("hourlyRate", parseFloat(e.target.value))
-                            }
-                            placeholder="Hourly Rate"
+                        <select
+                            value={form.role}
+                            onChange={(e) => handleChange("role", e.target.value)}
                             className="mt-1 w-full px-3 py-2 border rounded-lg bg-white dark:bg-gray-900
-              border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100
-              focus:ring-indigo-500 focus:border-indigo-500"
-                            required
-                        />
+                border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100
+                focus:ring-indigo-500 focus:border-indigo-500"
+                        >
+                            <option value="ADMIN">Admin</option>
+                        </select>
                     </div>
 
                     {/* Buttons */}
@@ -142,7 +142,7 @@ export default function AddEmployee() {
                             type="button"
                             onClick={() => navigate("/adminDash")}
                             className="px-5 py-2 border rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700
-              transition-colors text-gray-800 dark:text-gray-100"
+                transition-colors text-gray-800 dark:text-gray-100"
                         >
                             ← Back
                         </button>
@@ -152,7 +152,7 @@ export default function AddEmployee() {
                             disabled={loading}
                             className="px-5 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition"
                         >
-                            {loading ? "Adding..." : "Add Employee"}
+                            {loading ? "Saving..." : "Save Changes"}
                         </button>
                     </div>
                 </form>

@@ -13,6 +13,7 @@ export default [
     route("adminDash", "routes/adminDash.tsx"),
     route("viewAllEvents", "routes/viewAllEvents.tsx"),
     route("createEvent", "routes/createEvent.tsx"),
+    route("updateAdmin", "routes/updateAdmin.tsx"),
 
     // event-related routes
     route("eventDetails/:id", "routes/eventDetails.tsx"),
@@ -22,4 +23,5 @@ export default [
     route("addEmployee", "routes/addEmployee.tsx"),
     route("viewEmployees", "routes/viewEmployees.tsx"),
     route("employeeDetails/:id", "routes/employeeDetails.tsx"),
+    route("updateEmployee/:id", "routes/updateEmployee.tsx"),
 ] satisfies RouteConfig;

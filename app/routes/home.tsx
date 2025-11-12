@@ -5,22 +5,7 @@ import { FeatureCard } from "~/components/FeatureCard";
 import {FAQ} from "~/components/FAQ";
 import { useEffect } from "react";
 import HeroBanner from "~/components/HeroBanner";
-import SplitText from "~/components/SplitText";
-
-declare global {
-    namespace JSX {
-        interface IntrinsicElements {
-            "model-viewer": React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
-                src?: string;
-                "ios-src"?: string;
-                "ar-modes"?: string;
-                ar?: boolean;
-                "camera-controls"?: boolean;
-                "auto-rotate"?: boolean;
-            };
-        }
-    }
-}
+import {SplitText} from "~/components/SplitText";
 
 const containerVariants: Variants = {
     hidden: {},

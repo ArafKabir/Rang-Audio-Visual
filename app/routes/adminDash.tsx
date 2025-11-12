@@ -1,6 +1,6 @@
 import { useAuth } from "~/context/AuthContext";
 import { useNavigate } from "react-router";
-import SplitText from "~/components/SplitText"
+import {SplitText} from "~/components/SplitText"
 
 export default function AdminDash() {
     const { admin } = useAuth();
@@ -17,7 +17,10 @@ export default function AdminDash() {
     const handleLogout = () => {
         localStorage.clear();
         sessionStorage.clear();
-        navigate("/login");
+
+        navigate("/login", { replace: true });
+
+        window.location.reload();
     };
 
     function handleUpdate() {
@@ -38,8 +41,8 @@ export default function AdminDash() {
             title: "Employees",
             description: "View or add employees working with Rang Audio Visual",
             actions: [
-                { label: "Add Employee", href: "/admin/employee/addEmployee" },
-                { label: "View All Employees", href: "/admin/employee/viewEmployees" },
+                { label: "Add Employee", href: "/addEmployee" },
+                { label: "View All Employees", href: "/viewEmployees" },
             ],
             gradient: "from-[#CCDCE6] via-[#7FC4DB] to-[#4588B5]",
         },
@@ -47,7 +50,7 @@ export default function AdminDash() {
             title: "Profile",
             description: "Update your admin profile and view details",
             actions: [
-                { label: "Update", onClick: () => handleUpdate() },
+                { label: "Update", href: "/updateAdmin" },
                 { label: "Logout", onClick: () => handleLogout() },
             ],
             gradient: "from-[#CCDCE6] via-[#7FC4DB] to-[#4588B5]",

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
-import SplitText from "~/components/SplitText";
+import {SplitText} from "~/components/SplitText";
 
 type FAQ = { question: string; answer: string };
 

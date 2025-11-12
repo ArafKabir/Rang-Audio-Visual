@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router";
-import SplitText from "./SplitText";
+import {SplitText} from "./SplitText";
 import { ImageSlider } from "./ImageSlider";
 
 export default function HeroBanner() {
@@ -68,7 +68,7 @@ export default function HeroBanner() {
                 </p>
 
                 <Link
-                    to="/booking"
+                    to="/contact"
                     className="relative inline-block overflow-hidden px-8 py-3 border border-white text-white backdrop-blur-md bg-white/10 hover:bg-white/20 rounded-xl transition-all duration-300"
                 >
                     <span className="relative z-10 font-semibold">Book Now</span>

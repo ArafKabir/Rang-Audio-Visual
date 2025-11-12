@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, type ReactNode } from "react";
+import {Navigate} from "react-router";
 
 export type AdminDTO = {
     id: number;
@@ -31,3 +32,14 @@ export const useAuth = () => {
         throw new Error("useAuth must be used within an AuthProvider");
     return context;
 };
+
+export default function ProtectedRoute({ children }: { children: React.ReactNode }) {
+    const { admin } = useAuth();
+
+    if (!admin) {
+
+        return <Navigate to="/login" replace />;
+    }
+
+    return children;
+}

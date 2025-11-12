@@ -4,7 +4,7 @@ import type {WorkSessionDTO} from "~/api/workSessionApi";
 const BASE_URL = "http://localhost:8080/api/v1/event";
 
 export interface EventDTO {
-    id: number;
+    id?: number;
     name: string;
     date: string; // LocalDateTime → ISO string
     location: string;
@@ -20,6 +20,39 @@ export interface EventEmployeeDTO {
     workSessions?: WorkSessionDTO[];
 }
 
+
+/**
+ * Create an event
+ */
+export async function createEvent(dto: EventDTO): Promise<EventDTO> {
+    const res = await fetch(`${BASE_URL}/create`, {
+        method: "POST",
+        headers: {"content-type": "application/json" },
+        body: JSON.stringify(dto),
+        });
+        
+        if (!res.ok) {
+        const errorText = await res.text();
+        console.error("Error creating event:", errorText);
+        throw new Error("Failed to create event");
+        }
+        
+        return res.json();
+}
+
+export async function deleteEvent(eventId: number): Promise<string> {
+    const res = await fetch(`${BASE_URL}/delete/${eventId}`, {
+        method: "DELETE",
+    })
+
+    if (!res.ok) {
+        const errorText = await res.text();
+        console.error("Error deleting event:", errorText);
+        throw new Error("Failed to delete event");
+    }
+
+    return res.text();
+}
 /**
  * Fetch all events
  */
