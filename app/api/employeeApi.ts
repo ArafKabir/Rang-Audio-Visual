@@ -1,5 +1,6 @@
 // app/api/employeeApi.ts
-const BASE_URL = "http://localhost:8080/api/v1/employee";
+import {API_URL} from "~/config";
+const BASE_URL = `${API_URL}/api/v1/employee`;
 
 export interface EmployeeDTO {
     id?: number;

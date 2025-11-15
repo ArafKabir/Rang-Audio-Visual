@@ -1,5 +1,6 @@
 // app/api/workSessionApi.ts
-const BASE_URL = "http://localhost:8080/api/v1/session";
+import {API_URL} from "~/config";
+const BASE_URL = `${API_URL}/api/v1/session`;
 
 export interface WorkSessionDTO {
     id?: number;

@@ -1,7 +1,8 @@
 // app/api/eventApi.ts
 import type {WorkSessionDTO} from "~/api/workSessionApi";
+import {API_URL} from "~/config";
 
-const BASE_URL = "http://localhost:8080/api/v1/event";
+const BASE_URL = `${API_URL}/api/v1/event`;
 
 export interface EventDTO {
     id?: number;

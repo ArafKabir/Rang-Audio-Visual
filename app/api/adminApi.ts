@@ -1,7 +1,8 @@
-import type {AdminDTO} from "../context/AuthContext";
+import type { AdminDTO } from "../context/AuthContext";
+import { API_URL } from "~/config";
 
 export async function loginAdmin(email: string, password: string): Promise<AdminDTO> {
-    const res = await fetch("http://localhost:8080/api/v1/admin/login", {
+    const res = await fetch(`${API_URL}/api/v1/admin/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -15,10 +16,10 @@ export async function loginAdmin(email: string, password: string): Promise<Admin
 }
 
 export async function updateAdmin(adminDTO: AdminDTO): Promise<AdminDTO> {
-    const res = await fetch("http://localhost:8080/api/v1/admin/update", {
+    const res = await fetch(`${API_URL}/api/v1/admin/update`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(adminDTO), // ✅ send directly, not wrapped
+        body: JSON.stringify(adminDTO),
     });
 
     if (!res.ok) {
