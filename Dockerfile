@@ -1,4 +1,4 @@
-# === Stage 1: Install dependencies for development ===
+# === Stage 1: Install dependencies ===
 FROM node:20-alpine AS deps
 WORKDIR /app
 COPY package*.json ./
@@ -9,17 +9,20 @@ FROM node:20-alpine AS build
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN npm run build
+RUN npm run build    # produces build/client
 
-# === Stage 3: Production runtime ===
-FROM node:20-alpine AS runtime
-WORKDIR /app
-ENV NODE_ENV=production
+# === Stage 3: Serve with nginx ===
+FROM nginx:stable-alpine
+WORKDIR /usr/share/nginx/html
 
-# Copy only what’s needed
-COPY package*.json ./
-COPY --from=deps /app/node_modules ./node_modules
-COPY --from=build /app/build ./build
+# Remove default nginx page
+RUN rm -rf ./*
 
-EXPOSE 5173
-CMD ["npm", "run", "start"]
+# Copy CSR build output
+COPY --from=build /app/build/client ./
+
+# Add custom nginx config for SPA routing
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
